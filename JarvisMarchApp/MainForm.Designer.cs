@@ -41,6 +41,7 @@
             this.pictureBox.Size = new System.Drawing.Size(300, 300);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
+            this.pictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             // 
             // computeButton
             // 
@@ -51,6 +52,7 @@
             this.computeButton.TabIndex = 1;
             this.computeButton.Text = "Compute";
             this.computeButton.UseVisualStyleBackColor = true;
+            this.computeButton.Click += new System.EventHandler(this.computeButton_Click);
             // 
             // clearButton
             // 
@@ -61,6 +63,7 @@
             this.clearButton.TabIndex = 2;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // MainForm
             // 
@@ -74,6 +77,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Jarvis March";
+            this.Shown += new System.EventHandler(this.MainForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
 
