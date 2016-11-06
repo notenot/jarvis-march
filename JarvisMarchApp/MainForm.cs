@@ -6,12 +6,14 @@ namespace JarvisMarch
 {
     public partial class MainForm : Form
     {
-        private Pen _hullPen; 
-        private Pen _pointPen;
-        private Color _backGr;
+        private readonly Pen _hullPen; 
+        private readonly Pen _pointPen;
+        private readonly Color _backGr;
         private Graphics _graphics;
 
-        private LinkedList<Point> _points; 
+        private readonly LinkedList<Point> _points;
+
+        private bool _isDrawn;
 
         public MainForm()
         {
@@ -22,6 +24,23 @@ namespace JarvisMarch
             _backGr = Color.White;
 
             _points = new LinkedList<Point>();
+            _isDrawn = false;
+        }
+
+        private void ClearPictureBox()
+        {
+            using (var brush = new SolidBrush(_backGr))
+                _graphics.FillRectangle
+                    (brush, 0, 0, pictureBox.Width, pictureBox.Height);
+            pictureBox.Invalidate();
+        }
+
+        private void RedrawPoints()
+        {
+            ClearPictureBox();
+            foreach (var p in _points)
+                _graphics.DrawRectangle(_pointPen, p.X, p.Y, 1, 1);
+            pictureBox.Invalidate();
         }
 
         private void pictureBox_MouseClick(object sender, MouseEventArgs e)
@@ -46,18 +65,19 @@ namespace JarvisMarch
 
         private void clearButton_Click(object sender, System.EventArgs e)
         {
-            using (var brush = new SolidBrush(_backGr))
-                _graphics.FillRectangle
-                    (brush, 0, 0, pictureBox.Width, pictureBox.Height);
-            pictureBox.Invalidate();
-
+            ClearPictureBox();
             _points.Clear();
+            _isDrawn = false;
         }
 
         private void computeButton_Click(object sender, System.EventArgs e)
         {
             if (_points.Count < 3)
                 return;
+
+            if (_isDrawn)
+                RedrawPoints();
+            else _isDrawn = true;
 
             var hull = JarvisMarchLib.JarvisMarch.Calculate(_points);
 
