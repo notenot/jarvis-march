@@ -13,7 +13,7 @@ namespace JarvisMarchLib
             if (points.Count < 3)
                 return null;
 
-            _points = points;
+            _points = new LinkedList<Point>(points);
             _convexHull = new LinkedList<Point>();
 
             var s0 = GetLowerLeftPoint();
