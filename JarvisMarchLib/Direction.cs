@@ -15,7 +15,7 @@ namespace JarvisMarchLib
             var newB = new Point(b.X - a.X, b.Y - a.Y);
             var newC = new Point(c.X - a.X, c.Y - a.Y);
             // calculate pseudoinner product
-            var prod = newC.Y * newB.X - newB.Y * newC.Y;
+            var prod = newC.Y * newB.X - newB.Y * newC.X;
 
             if (prod > 0)
                 return Value.Left;
