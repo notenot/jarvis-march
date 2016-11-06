@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JarvisMarchApp", "JarvisMar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JarvisMarchLib", "JarvisMarchLib\JarvisMarchLib.csproj", "{6AB86F1C-C0EF-42C0-B86C-910ABC7FAE50}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JarvisMarchTests", "JarvisMarchTests\JarvisMarchTests.csproj", "{7B4446DF-D6D3-4A3B-B443-F7D7BBD8E276}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6AB86F1C-C0EF-42C0-B86C-910ABC7FAE50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AB86F1C-C0EF-42C0-B86C-910ABC7FAE50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AB86F1C-C0EF-42C0-B86C-910ABC7FAE50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B4446DF-D6D3-4A3B-B443-F7D7BBD8E276}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B4446DF-D6D3-4A3B-B443-F7D7BBD8E276}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B4446DF-D6D3-4A3B-B443-F7D7BBD8E276}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B4446DF-D6D3-4A3B-B443-F7D7BBD8E276}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

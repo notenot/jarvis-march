@@ -32,7 +32,7 @@ namespace JarvisMarch
 
             _points.AddLast(point);
 
-            _graphics.DrawRectangle(_pointPen, e.X, e.Y, 1, 1);
+            _graphics.DrawRectangle(_pointPen, point.X, point.Y, 1, 1);
             pictureBox.Invalidate();
         }
 
@@ -56,7 +56,19 @@ namespace JarvisMarch
 
         private void computeButton_Click(object sender, System.EventArgs e)
         {
+            if (_points.Count < 3)
+                return;
 
+            var hull = JarvisMarchLib.JarvisMarch.Calculate(_points);
+
+            var node = hull.First;
+            while (node.Next != null)
+            {
+                _graphics.DrawLine(_hullPen, node.Value, node.Next.Value);
+                node = node.Next;
+            }
+            _graphics.DrawLine(_hullPen, node.Value, hull.First.Value);
+            pictureBox.Invalidate();
         }
     }
 }
